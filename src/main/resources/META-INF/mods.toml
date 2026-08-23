@@ -1,0 +1,73 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "MIT"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+displayURL = "https://extraspecialstudio.co.uk"
+logoFile = "calmtheleaks.png"
+authors = "${mod_authors}"
+displayTest = "MATCH_VERSION"
+
+description = '''Calm The Leaks is a server-side companion mod for AllTheLeaks that filters noise and provides intelligent leak analysis.
+
+CTL intercepts ATL's leak reports and evaluates them with context: server phase, trend analysis, and modpack awareness. It suppresses false alarms (like stable chunk retention from claiming mods) while tracking everything for review.
+
+When leaks are detected, CTL performs real-time analysis of your modpack to identify likely culprits. It builds confidence over time through pattern recognition and only suggests fixes when it's reasonably certain of the cause.
+
+If Spark is installed, CTL can start a profiler run for severe leaks; heap percentages shown in CTL always come from the JVM. Spark's own viewer is where profile detail lives.
+
+Diagnostics GUI (recommended): open ES Hub (F9) → UTILITY → Calm The Leaks, or run /ctl panel — each tracked leak is a button with a full diagnosis page. /ctl status, leaks, and explain open this panel when prefer_diagnostics_gui is true (default).
+
+Commands:
+/ctl panel — Open diagnostics panel (explicit)
+/ctl status — Phase, uptime, and leak summary (or GUI)
+/ctl leaks — Leak list (or GUI)
+/ctl explain — Per-leak analysis (or GUI)
+/ctl narrow — Snapshot/compare leak lists while you change mods (restart between tests)
+
+CTL doesn't hide real problems - it filters startup noise and transitional false positives so you can focus on actual leaks that need attention.'''
+
+[[dependencies."${mod_id}"]]
+modId = "forge"
+mandatory = true
+versionRange = "${forge_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "minecraft"
+mandatory = true
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "extraspecialcore"
+mandatory = true
+versionRange = "${esc_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "extraspeciallib"
+mandatory = true
+versionRange = "${esl_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "extraspecialhub"
+mandatory = true
+versionRange = "${esh_version_range}"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies."${mod_id}"]]
+modId = "alltheleaks"
+mandatory = true
+versionRange = "[1.0,)"
+ordering = "AFTER"
+side = "SERVER"
