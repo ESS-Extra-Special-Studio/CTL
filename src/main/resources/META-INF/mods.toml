@@ -60,7 +60,7 @@ side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "extraspecialhub"
-mandatory = true
+mandatory = false
 versionRange = "${esh_version_range}"
 ordering = "AFTER"
 side = "CLIENT"
